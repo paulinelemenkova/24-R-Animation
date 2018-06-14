@@ -26,7 +26,7 @@ Profiles<- MDTt$variable
 g <- ggplot(MDTt, aes(x = Observations, y = Depth, frame = Profiles)) +
   geom_point() +
   geom_smooth(aes(group = Profiles), method = "loess", show.legend = TRUE)
-gganimate(g, interval=1.0)
+gganimate(g, "Animation-blue-1-method.gif", interval=1.0)
 
 # 2 вариант - четырехцветный, с 4 методами
 
@@ -38,7 +38,7 @@ g <- ggplot(MDTt, aes(x = Observations, y = Depth, frame = Profiles, color = "Ob
 	geom_smooth(aes(group = Profiles, colour = "Lm method"), method = lm, se = TRUE, size=.2, linetype = "solid", show.legend = TRUE) +
 	scale_color_manual(name = "Legend:", values = c("Observation points" = "seagreen", "Loess method" = "red", "Glm method" = "orange", "Lm method" = "blue", "Quantiles" = "purple"))
     
-gganimate(g, interval=1.0)
+gganimate(g, "Animation-color-3-methods.gif", interval=1.0)
 
-
+ 
 
