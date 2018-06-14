@@ -36,7 +36,7 @@ g <- ggplot(MDTt, aes(x = Observations, y = Depth, frame = Profiles, color = "Ob
 	geom_smooth(aes(group = Profiles, x = Observations, y = Depth, colour = "Glm method"), method = glm, se = TRUE, span = .4, size=.2, linetype = "dotted", show.legend = TRUE) +
 	geom_smooth(aes(group = Profiles, x = Observations, y = Depth, colour = "Lm method"), method = lm, se = TRUE, size=.2, linetype = "solid", show.legend = TRUE) +
 	geom_quantile(aes(group = Profiles, x = Observations, y = Depth, colour = "Quantiles"), size=.2, linetype = "solid", show.legend = TRUE) +
-	scale_color_manual(name = "Legend:", values = c("Observation points" = "seagreen", "Loess method" = "red", "Glm method" = "orange", "Lm method" = "blue", "Quantiles" = "purple"))
+	scale_color_manual(name = "Regression Analysis \nLegend:", values = c("Observation points" = "seagreen", "Loess method" = "red", "Glm method" = "orange", "Lm method" = "blue", "Quantiles" = "purple"))
     
 gganimate(g, "Animation-color-4-methods.gif", interval=1.0)
 
