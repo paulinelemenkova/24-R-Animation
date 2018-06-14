@@ -32,13 +32,13 @@ gganimate(g, "Animation-blue-1-method.gif", interval=1.0)
 
 g <- ggplot(MDTt, aes(x = Observations, y = Depth, frame = Profiles, color = "Observation points")) +
 	geom_point() +
-	geom_smooth(aes(group = Profiles), method = "loess", show.legend = TRUE) +
-	geom_smooth(aes(group = Profiles, colour = "Loess method"), method = loess, se = TRUE, span = .4, size=.2, linetype = "solid", show.legend =  TRUE) +
-	geom_smooth(aes(group = Profiles, colour = "Glm method"), method = glm, se = TRUE, span = .4, size=.2, linetype = "dotted", show.legend = TRUE) +
-	geom_smooth(aes(group = Profiles, colour = "Lm method"), method = lm, se = TRUE, size=.2, linetype = "solid", show.legend = TRUE) +
+	geom_smooth(aes(group = Profiles, x = Observations, y = Depth, colour = "Loess method"), method = loess, se = TRUE, span = .4, size=.2, linetype = "solid", show.legend =  TRUE) +
+	geom_smooth(aes(group = Profiles, x = Observations, y = Depth, colour = "Glm method"), method = glm, se = TRUE, span = .4, size=.2, linetype = "dotted", show.legend = TRUE) +
+	geom_smooth(aes(group = Profiles, x = Observations, y = Depth, colour = "Lm method"), method = lm, se = TRUE, size=.2, linetype = "solid", show.legend = TRUE) +
+	geom_quantile(aes(group = Profiles, x = Observations, y = Depth, colour = "Quantiles"), size=.2, linetype = "solid", show.legend = TRUE) +
 	scale_color_manual(name = "Legend:", values = c("Observation points" = "seagreen", "Loess method" = "red", "Glm method" = "orange", "Lm method" = "blue", "Quantiles" = "purple"))
     
-gganimate(g, "Animation-color-3-methods.gif", interval=1.0)
+gganimate(g, "Animation-color-4-methods.gif", interval=1.0)
 
  
 
